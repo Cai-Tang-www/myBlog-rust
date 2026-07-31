@@ -9,6 +9,9 @@ on:
 permissions:
   contents: read
 
+env:
+  PAGEFIND_VERSION: v1.5.2
+
 jobs:
   quality:
     runs-on: ubuntu-latest
@@ -20,15 +23,27 @@ jobs:
           components: rustfmt, clippy
           targets: wasm32-unknown-unknown
       - uses: Swatinem/rust-cache@v2
+      - name: Install pinned Pagefind standalone
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .tools/pagefind
+          cd .tools/pagefind
+          asset="pagefind_extended-${PAGEFIND_VERSION}-x86_64-unknown-linux-musl.tar.gz"
+          base="https://github.com/Pagefind/pagefind/releases/download/${PAGEFIND_VERSION}"
+          curl --fail --silent --show-error --location --remote-name "${base}/${asset}"
+          curl --fail --silent --show-error --location --remote-name "${base}/${asset}.sha256"
+          sha256sum --check "${asset}.sha256"
+          tar -xzf "${asset}"
+          chmod +x pagefind_extended
+          ./pagefind_extended --version
       - name: Format
         run: cargo fmt --all --check
       - name: Clippy
         run: cargo clippy --workspace --all-targets -- -D warnings
       - name: Test
         run: cargo test --workspace
-      - name: Build WASM client
-        run: cargo build --package blog-client --target wasm32-unknown-unknown --release
-      - name: Build static site
+      - name: Build complete static site
         run: cargo xtask build
       - name: Verify generated site
         run: cargo xtask check
@@ -37,3 +52,4 @@ jobs:
         with:
           name: site-dist
           path: dist
+          if-no-files-found: error
