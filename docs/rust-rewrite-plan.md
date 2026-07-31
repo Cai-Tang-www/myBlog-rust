@@ -1,6 +1,6 @@
 # myBlog Rust 重写计划
 
-> 状态：实现与本地验收完成，等待 PR CI、合并和生产发布验收
+> 状态：已完成；PR/main CI、合并、GitHub Pages 部署和生产验收全部通过
 > 基线日期：2026-07-31  
 > 原仓库：`Cai-Tang-www/myBlog`  
 > 原仓库基线：分支 `course-web`，提交 `d635a6d`  

@@ -56,4 +56,4 @@ cargo xtask check
 
 ## 部署
 
-`.github/workflows/deploy-pages.yml` 在 `main` 上构建、检查并上传 `dist/`。仓库 Pages Source 需设为 **GitHub Actions**。生产地址：`https://cai-tang-www.github.io/myBlog-rust/`。
+`.github/workflows/deploy-pages.yml` 在 `main` 上构建、检查并上传 `dist/`。仓库 Pages Source 已设为 **GitHub Actions**，`main` CI 与 Pages 部署已通过。生产地址：`https://cai-tang-www.github.io/myBlog-rust/`。
