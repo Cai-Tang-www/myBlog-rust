@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="{{ language }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <meta name="author" content="{{ author }}">
+  <meta name="keywords" content="{{ keywords }}">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="renderer" content="webkit">
+  {% if bing.len() > 0 %}<meta name="msvalidate.01" content="{{ bing }}">{% endif %}
+  {% if baidu.len() > 0 %}<meta name="baidu-site-verification" content="{{ baidu }}">{% endif %}
+  {% if so360.len() > 0 %}<meta name="360-site-verification" content="{{ so360 }}">{% endif %}
+  <link rel="canonical" href="{{ canonical }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site_title }}" href="{{ rss_url }}">
+  <link rel="icon" href="{{ favicon_url }}" type="image/svg+xml">
+  <meta property="og:type" content="{{ og_type }}">
+  <meta property="og:locale" content="{{ locale }}">
+  <meta property="og:site_name" content="{{ site_name }}">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="{{ canonical }}">
+  <meta property="og:image" content="{{ og_image }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:description" content="{{ description }}">
+  <meta name="twitter:image" content="{{ og_image }}">
+  {% for stylesheet in stylesheets %}<link rel="stylesheet" href="{{ stylesheet }}">{% endfor %}
+  {% for json in json_ld %}<script type="application/ld+json">{{ json|safe }}</script>{% endfor %}
+</head>
+<body data-base-path="{{ base_path }}" data-page-kind="{{ page_kind }}" data-giscus-enabled="{{ giscus_enabled }}" data-giscus-repo="{{ giscus_repo }}" data-giscus-repo-id="{{ giscus_repo_id }}" data-giscus-category="{{ giscus_category }}" data-giscus-category-id="{{ giscus_category_id }}" data-giscus-mapping="{{ giscus_mapping }}" data-giscus-theme="{{ giscus_theme }}">
+  <canvas id="canvas-nest" aria-hidden="true"></canvas>
+  <div class="headband"></div>
+  <div class="site-frame">
+    <header class="site-header header" data-pagefind-ignore>
+      <div class="container"><div class="site-header-inner">
+        <a href="{{ home_url }}" class="brand"><span class="brandBadge" aria-hidden="true"></span><span class="logo-line-before"><i></i></span><span class="siteTitle">{{ site_name }}</span><span class="logo-line-after"><i></i></span></a>
+        <nav class="nav" aria-label="主导航"><a href="{{ home_url }}" class="navLink">首页</a><a href="{{ blog_url }}" class="navLink">文章</a><a href="{{ contact_url }}" class="navLink">留言</a><a href="{{ github_url }}" class="navLink" target="_blank" rel="noreferrer">GitHub</a></nav>
+      </div></div>
+    </header>
+    <main class="page-enter">{{ body|safe }}</main>
+    <footer class="footer" data-pagefind-ignore><div class="container"><div class="footer-inner"><p class="copyright">&copy; {{ year }} {{ author }}</p><div class="footer-links"><a href="{{ blog_url }}">文章</a><a href="{{ rss_url }}">RSS</a><a href="{{ github_url }}" target="_blank" rel="noreferrer">GitHub</a></div></div></div></footer>
+  </div>
+  <button class="back-to-top" type="button" aria-label="回到顶部"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg><span>0%</span></button>
+  <noscript><p class="container">JavaScript/WASM 已禁用；文章正文与导航仍可正常使用。</p></noscript>
+  <script type="module">
+    import init from "{{ client_js }}";
+    try {
+      await init({ module_or_path: "{{ client_wasm }}" });
+      document.documentElement.dataset.rustBlogReady = "true";
+    } catch (error) {
+      document.documentElement.dataset.rustBlogError = "wasm-init";
+      console.error("Failed to initialize the Rust/WASM client", error);
+    }
+  </script>
+</body>
+</html>

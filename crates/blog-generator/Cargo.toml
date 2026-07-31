@@ -10,9 +10,13 @@ repository.workspace = true
 anyhow.workspace = true
 askama.workspace = true
 blog-core = { path = "../blog-core" }
+chrono.workspace = true
 clap.workspace = true
+html-escape.workspace = true
 mime_guess.workspace = true
+regex.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 tiny_http.workspace = true
 walkdir.workspace = true
+wasm-bindgen-cli-support = "=0.2.126"

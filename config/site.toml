@@ -1,10 +1,24 @@
-site_name = "蔡棠的博客"
-site_url = "https://cai-tang-www.github.io/myBlog-rust"
+site_name = "Ca1_Tang"
+site_title = "Ca1_Tang | 技术写作与构建笔记"
+site_url = "https://cai-tang-www.github.io"
 base_path = "/myBlog-rust"
 language = "zh-CN"
-description = "记录技术、学习与思考的个人博客，使用 Rust 静态生成。"
-author = "Cai-Tang-www"
+locale = "zh_CN"
+description = "聚焦工程实践、内容系统和产品设计的个人技术博客，使用 Rust 静态生成。"
+author = "Ca1_Tang"
+twitter = "@Ca1_Tang"
+github_url = "https://github.com/Cai-Tang-www"
+og_image = "/images/og-default.svg"
 words_per_minute = 240
+
+[image]
+provider = "none"
+base_url = ""
+
+[verification]
+bing = ""
+baidu = ""
+so360 = ""
 
 [giscus]
 enabled = false
@@ -12,3 +26,5 @@ repo = ""
 repo_id = ""
 category = ""
 category_id = ""
+mapping = "pathname"
+theme = "preferred_color_scheme"
