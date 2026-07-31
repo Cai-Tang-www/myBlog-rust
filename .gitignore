@@ -1,0 +1,7 @@
+/dist/
+/target/
+/pagefind-cache/
+*.log
+.DS_Store
+Thumbs.db
+.env

@@ -1,0 +1,18 @@
+[package]
+name = "blog-generator"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+askama.workspace = true
+blog-core = { path = "../blog-core" }
+clap.workspace = true
+mime_guess.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tiny_http.workspace = true
+walkdir.workspace = true

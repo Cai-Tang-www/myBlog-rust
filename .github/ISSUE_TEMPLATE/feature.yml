@@ -1,0 +1,29 @@
+name: 功能实现
+about: 记录 Rust 重写的独立功能、验收标准和实现轨迹
+title: "[Feature] "
+labels: ["feature"]
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: 背景与目标
+    validations:
+      required: true
+  - type: textarea
+    id: design
+    attributes:
+      label: 功能设计
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 验收标准
+      placeholder: "- [ ] ..."
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 验证证据
+      description: 完成时补充命令、截图、CI 或页面地址。

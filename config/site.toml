@@ -1,0 +1,14 @@
+site_name = "蔡棠的博客"
+site_url = "https://cai-tang-www.github.io/myBlog-rust"
+base_path = "/myBlog-rust"
+language = "zh-CN"
+description = "记录技术、学习与思考的个人博客，使用 Rust 静态生成。"
+author = "Cai-Tang-www"
+words_per_minute = 240
+
+[giscus]
+enabled = false
+repo = ""
+repo_id = ""
+category = ""
+category_id = ""
