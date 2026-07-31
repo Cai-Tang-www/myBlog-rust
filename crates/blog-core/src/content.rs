@@ -263,12 +263,15 @@ mod tests {
         for fixture in expected {
             let slug = fixture["slug"].as_str().expect("slug");
             let post = posts.iter().find(|post| post.slug == slug).expect("post");
-            let source = fs::read(root.join(fixture["file"].as_str().expect("file")))
+            let source = fs::read_to_string(root.join(fixture["file"].as_str().expect("file")))
                 .expect("read post source");
-            let hash = format!("{:x}", Sha256::digest(&source));
+            // Git stores the legacy Markdown with LF. Normalize checkout-specific CRLF so
+            // byte fixtures stay identical on Windows and Linux runners.
+            let canonical_source = source.replace("\r\n", "\n");
+            let hash = format!("{:x}", Sha256::digest(canonical_source.as_bytes()));
             assert_eq!(hash, fixture["sha256"].as_str().expect("sha256"));
             assert_eq!(
-                source.len() as u64,
+                canonical_source.len() as u64,
                 fixture["bytes"].as_u64().expect("bytes")
             );
             assert_eq!(

@@ -57,8 +57,8 @@
     {
       "slug": "document-guides",
       "file": "content/posts/document-guides.md",
-      "sha256": "7381d5f5df50de96cdca465f422941405e32076e5029252fa928a265a0eb9a00",
-      "bytes": 15527,
+      "sha256": "318c1685b8d74bb8b968dd9126a727b1a9f4b1e179586cd7b6069b00f89bec78",
+      "bytes": 15180,
       "frontmatter": {
         "title": "文档指引架构",
         "summary": "代码生成越来越容易，但系统边界、主流程、非目标和验收标准必须先被写清楚。",
@@ -75,8 +75,8 @@
     {
       "slug": "hooks-lifecycle-control-layer",
       "file": "content/posts/hooks-lifecycle-control-layer.md",
-      "sha256": "b1aa4ed43967cc16f200747a586313a307105b96446d93514056373f8676dcfe",
-      "bytes": 24227,
+      "sha256": "68a84698a968f02e5b8b7967d4393894fae21d5cf01206aa3f90553959d190f6",
+      "bytes": 23523,
       "frontmatter": {
         "title": "Hooks：生命周期扩展点",
         "titleLines": [
@@ -98,8 +98,8 @@
     {
       "slug": "human-in-the-loop-neocode",
       "file": "content/posts/human-in-the-loop-neocode.md",
-      "sha256": "6ab38e347bd77c835551705c8ed2bb431c50c86ebe1dffe597ed24014e4c06a9",
-      "bytes": 17153,
+      "sha256": "9c5023ad79cc7945d12c24fc3c25f46d705ee43af29a4ab27b3b5ac1339f9565",
+      "bytes": 16803,
       "frontmatter": {
         "title": "Human-in-the-Loop：人不能退出架构决策",
         "titleLines": [
@@ -123,8 +123,8 @@
     {
       "slug": "national-college-entrance-examination",
       "file": "content/posts/national-college-entrance-examination.md",
-      "sha256": "fbd551e2c7834774edcf4e1400464249dd11a37c6332086d5431f5a5bda18d3e",
-      "bytes": 2814,
+      "sha256": "034af68246596003e51013c5db5961ebf5f9b434c24fb354ed99a045cd993340",
+      "bytes": 2777,
       "frontmatter": {
         "title": "朋友,我不打算祝你金榜题名。",
         "summary": "祝你能完成你的高考。然后拥有一个什么都不欠的夏天。",
@@ -138,8 +138,8 @@
     {
       "slug": "neocode-agent",
       "file": "content/posts/neocode-agent.md",
-      "sha256": "9f7f7b52c314e85cb56e37aa1dfba66a2e14a57e0f682e0ae983eb06116ac07a",
-      "bytes": 20691,
+      "sha256": "c8175bcb66b42eb6da498408fda4a200553f10235f7559ad8e4fe68efcfc9391",
+      "bytes": 20383,
       "frontmatter": {
         "title": "NeoCode 架构分析",
         "summary": "好的架构做减法，功能做乘法。",
@@ -158,8 +158,8 @@
     {
       "slug": "skills-agent-brain",
       "file": "content/posts/skills-agent-brain.md",
-      "sha256": "06243b66a126b43b5660b42777fb00889ec3d8a092afe8f08dc5c6c0184b1ee7",
-      "bytes": 16159,
+      "sha256": "680356c1e6068c41217abb0bf1e7ee055f4285b2bc34800c4712c7868e6ff584",
+      "bytes": 15521,
       "frontmatter": {
         "title": "Skill：Agent行动手册",
         "summary": "梳理 Skills 的定位、边界和落地方式。",
@@ -176,8 +176,8 @@
     {
       "slug": "subagent-from-dag-to-inline",
       "file": "content/posts/subagent-from-dag-to-inline.md",
-      "sha256": "25c59070fa70c947689310f147f436b4a3d088449c61d9591701b571a9d9b5c6",
-      "bytes": 16285,
+      "sha256": "ef6ff5b9fe22da8d907c1dd726ac5375ff84424bb9f3dc278587d17fc029e13c",
+      "bytes": 15906,
       "frontmatter": {
         "title": "SubAgent复盘",
         "summary": "在做 SubAgent 后的基础思考",
