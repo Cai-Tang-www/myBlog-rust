@@ -1,0 +1,76 @@
+.article-toc {
+  position: sticky;
+  top: 5.6rem;
+  background: transparent;
+  padding: 0.2rem 0 0.2rem 0.7rem;
+  margin-left: 0.8rem;
+}
+
+.toc-rail {
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  bottom: 0.35rem;
+  width: 2px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.2);
+}
+
+.toc-progress {
+  display: block;
+  width: 100%;
+  border-radius: 999px;
+  background: #555555;
+  transition: height 220ms ease;
+}
+
+.toc-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.36rem;
+}
+
+.toc-item button {
+  width: 100%;
+  border: none;
+  background: transparent;
+  text-align: left;
+  color: #888888;
+  font-size: 0.85rem;
+  line-height: 1.35;
+  padding: 0.18rem 0.2rem 0.18rem 0.9rem;
+  cursor: pointer;
+  border-radius: 0;
+  transition: color 180ms ease;
+}
+
+.toc-level1 button {
+  padding-left: 0.9rem;
+}
+
+.toc-level2 button {
+  padding-left: 1.2rem;
+  font-size: 0.82rem;
+}
+
+.toc-level3 button {
+  padding-left: 1.6rem;
+  font-size: 0.79rem;
+}
+
+.toc-item button:hover {
+  color: #222222;
+}
+
+.toc-active button {
+  color: #222222;
+  font-weight: 700;
+}
+
+@media (max-width: 1180px) {
+  .article-toc {
+    display: none;
+  }
+}
