@@ -1,0 +1,75 @@
+@keyframes slideUpIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.post-card {
+  border: none;
+  padding: 1.1rem 1rem;
+  background: transparent;
+  opacity: 0;
+  animation: slideUpIn 0.5s ease forwards;
+}
+
+.post-card:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+.post-card-cover-wrap {
+  margin-bottom: 0.9rem;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.post-card-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 380ms var(--ease-smooth);
+}
+
+.post-card:hover .post-card-cover {
+  transform: scale(1.03);
+}
+
+.post-card-meta {
+  margin: 0;
+  display: flex;
+  gap: 0.5rem;
+  color: #666666;
+  font-size: 0.82rem;
+}
+
+.post-card-title {
+  margin: 0.65rem 0 0;
+  font-size: clamp(1.08rem, 1.2vw + 0.6rem, 1.28rem);
+  line-height: 1.35;
+  font-weight: 600;
+  color: #111111;
+}
+
+.post-card-title a {
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid transparent;
+  transition: border-color 180ms ease;
+}
+
+.post-card-title a:hover {
+  border-bottom-color: #111111;
+}
+
+.post-card-summary {
+  margin: 0.7rem 0 0;
+  color: #555555;
+  line-height: 1.7;
+  font-size: 0.92rem;
+}
+
+.post-card-tags {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}

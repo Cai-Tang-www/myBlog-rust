@@ -1,0 +1,36 @@
+.comments-wrapper {
+  margin-top: 2.6rem;
+  border-top: 1px solid var(--border-soft);
+  padding-top: 1.8rem;
+}
+
+.comments-title {
+  margin: 0;
+  font-size: 1.12rem;
+}
+
+.comments-hint {
+  margin: 0.55rem 0 0.9rem;
+  color: #888888;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.comments-fallback {
+  margin-top: 2.2rem;
+  border: 1px dashed rgba(255,255,255,0.2);
+  padding: 1.25rem 1.1rem;
+  background: rgba(255,255,255,0.06);
+}
+
+.comments-fallback h2 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.comments-fallback p {
+  margin: 0.55rem 0 0;
+  color: #555555;
+  line-height: 1.7;
+  font-size: 0.93rem;
+}

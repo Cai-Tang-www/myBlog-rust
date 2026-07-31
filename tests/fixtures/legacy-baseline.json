@@ -1,0 +1,197 @@
+{
+  "capturedAt": "2026-07-31",
+  "source": {
+    "repository": "Cai-Tang-www/myBlog",
+    "branch": "course-web",
+    "commit": "d635a6d"
+  },
+  "build": {
+    "staticPages": 15,
+    "publicPosts": 7,
+    "pagefindWords": 2357,
+    "pagefindFilters": 1
+  },
+  "routes": [
+    "/",
+    "/blog/",
+    "/blog/document-guides/",
+    "/blog/hooks-lifecycle-control-layer/",
+    "/blog/human-in-the-loop-neocode/",
+    "/blog/national-college-entrance-examination/",
+    "/blog/neocode-agent/",
+    "/blog/skills-agent-brain/",
+    "/blog/subagent-from-dag-to-inline/",
+    "/contact/",
+    "/404.html",
+    "/rss.xml",
+    "/sitemap.xml",
+    "/robots.txt",
+    "/BingSiteAuth.xml"
+  ],
+  "referenceViewports": [
+    {
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "verifiedInteractions": [
+    "article table-of-contents click updates hash and scroll position",
+    "active table-of-contents item follows scroll position",
+    "Mermaid renders five SVG diagrams in hooks article",
+    "empty contact form shows nickname, email, and message validation",
+    "mobile article hides desktop table of contents",
+    "unconfigured giscus renders a readable fallback"
+  ],
+  "intentionalFixes": [
+    "replace externally hosted typing SVG with local implementation and fix mobile clipping",
+    "provide the configured default OpenGraph image",
+    "remove duplicate RSS generation",
+    "serve JavaScript, WebAssembly, and Pagefind assets with correct MIME types",
+    "update the Next.js-specific site description"
+  ],
+  "posts": [
+    {
+      "slug": "document-guides",
+      "file": "content/posts/document-guides.md",
+      "sha256": "318c1685b8d74bb8b968dd9126a727b1a9f4b1e179586cd7b6069b00f89bec78",
+      "bytes": 15180,
+      "frontmatter": {
+        "title": "文档指引架构",
+        "summary": "代码生成越来越容易，但系统边界、主流程、非目标和验收标准必须先被写清楚。",
+        "publishedAt": "2026-05-10T00:00:00.000Z",
+        "tags": [
+          "NeoCode",
+          "Architecture",
+          "Engineering",
+          "AI Coding"
+        ],
+        "featured": false
+      }
+    },
+    {
+      "slug": "hooks-lifecycle-control-layer",
+      "file": "content/posts/hooks-lifecycle-control-layer.md",
+      "sha256": "68a84698a968f02e5b8b7967d4393894fae21d5cf01206aa3f90553959d190f6",
+      "bytes": 23523,
+      "frontmatter": {
+        "title": "Hooks：生命周期扩展点",
+        "titleLines": [
+          "Hooks 系统：",
+          "从生命周期扩展点，到可演进的控制层"
+        ],
+        "summary": "Hooks是 Agent 生命周期上的扩展点系统。它让主链路收敛、附加逻辑可治理。",
+        "publishedAt": "2026-04-25T00:00:00.000Z",
+        "tags": [
+          "Agent",
+          "Hooks",
+          "Runtime",
+          "Architecture"
+        ],
+        "featured": true,
+        "featuredOrder": 1
+      }
+    },
+    {
+      "slug": "human-in-the-loop-neocode",
+      "file": "content/posts/human-in-the-loop-neocode.md",
+      "sha256": "9c5023ad79cc7945d12c24fc3c25f46d705ee43af29a4ab27b3b5ac1339f9565",
+      "bytes": 16803,
+      "frontmatter": {
+        "title": "Human-in-the-Loop：人不能退出架构决策",
+        "titleLines": [
+          "Human-in-the-Loop：",
+          "人不能退出架构决策"
+        ],
+        "summary": "人必须在 AI 辅助开发中参与目标定义、架构取舍、状态收敛、事实校验和完成判断的循环。",
+        "publishedAt": "2026-05-09T00:00:00.000Z",
+        "tags": [
+          "Agent",
+          "HITL",
+          "NeoCode",
+          "Architecture",
+          "Engineering"
+        ],
+        "featured": true,
+        "featuredOrder": 3,
+        "draft": false
+      }
+    },
+    {
+      "slug": "national-college-entrance-examination",
+      "file": "content/posts/national-college-entrance-examination.md",
+      "sha256": "034af68246596003e51013c5db5961ebf5f9b434c24fb354ed99a045cd993340",
+      "bytes": 2777,
+      "frontmatter": {
+        "title": "朋友,我不打算祝你金榜题名。",
+        "summary": "祝你能完成你的高考。然后拥有一个什么都不欠的夏天。",
+        "publishedAt": "2026-05-30T00:00:00.000Z",
+        "tags": [
+          "National College Entrance Examination"
+        ],
+        "featured": true
+      }
+    },
+    {
+      "slug": "neocode-agent",
+      "file": "content/posts/neocode-agent.md",
+      "sha256": "c8175bcb66b42eb6da498408fda4a200553f10235f7559ad8e4fe68efcfc9391",
+      "bytes": 20383,
+      "frontmatter": {
+        "title": "NeoCode 架构分析",
+        "summary": "好的架构做减法，功能做乘法。",
+        "publishedAt": "2026-05-10T00:00:00.000Z",
+        "tags": [
+          "NeoCode",
+          "Agent",
+          "Architecture",
+          "Gateway",
+          "Engineering"
+        ],
+        "featured": true,
+        "featuredOrder": 0
+      }
+    },
+    {
+      "slug": "skills-agent-brain",
+      "file": "content/posts/skills-agent-brain.md",
+      "sha256": "680356c1e6068c41217abb0bf1e7ee055f4285b2bc34800c4712c7868e6ff584",
+      "bytes": 15521,
+      "frontmatter": {
+        "title": "Skill：Agent行动手册",
+        "summary": "梳理 Skills 的定位、边界和落地方式。",
+        "publishedAt": "2026-04-17T00:00:00.000Z",
+        "tags": [
+          "Agent",
+          "Skills",
+          "Engineering"
+        ],
+        "featured": true,
+        "featuredOrder": 4
+      }
+    },
+    {
+      "slug": "subagent-from-dag-to-inline",
+      "file": "content/posts/subagent-from-dag-to-inline.md",
+      "sha256": "ef6ff5b9fe22da8d907c1dd726ac5375ff84424bb9f3dc278587d17fc029e13c",
+      "bytes": 15906,
+      "frontmatter": {
+        "title": "SubAgent复盘",
+        "summary": "在做 SubAgent 后的基础思考",
+        "publishedAt": "2026-05-08T00:00:00.000Z",
+        "tags": [
+          "SubAgent",
+          "NeoCode",
+          "AgentLoop",
+          "ReAct",
+          "Engineering"
+        ],
+        "featured": true,
+        "featuredOrder": 2
+      }
+    }
+  ]
+}

@@ -14,6 +14,9 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
+env:
+  PAGEFIND_VERSION: v1.5.2
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,10 +25,26 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: 1.97.1
+          components: rustfmt, clippy
           targets: wasm32-unknown-unknown
       - uses: Swatinem/rust-cache@v2
+      - name: Install pinned Pagefind standalone
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .tools/pagefind
+          cd .tools/pagefind
+          asset="pagefind_extended-${PAGEFIND_VERSION}-x86_64-unknown-linux-musl.tar.gz"
+          base="https://github.com/Pagefind/pagefind/releases/download/${PAGEFIND_VERSION}"
+          curl --fail --silent --show-error --location --remote-name "${base}/${asset}"
+          curl --fail --silent --show-error --location --remote-name "${base}/${asset}.sha256"
+          sha256sum --check "${asset}.sha256"
+          tar -xzf "${asset}"
+          chmod +x pagefind_extended
+          ./pagefind_extended --version
       - run: cargo test --workspace
       - run: cargo xtask build
+      - run: cargo xtask check
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

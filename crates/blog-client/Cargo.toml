@@ -12,5 +12,14 @@ crate-type = ["cdylib", "rlib"]
 [dependencies]
 console_error_panic_hook = "0.1"
 js-sys.workspace = true
+serde.workspace = true
+serde_json.workspace = true
 wasm-bindgen.workspace = true
-web-sys = { workspace = true, features = ["Document", "Window"] }
+web-sys = { workspace = true, features = [
+  "CanvasRenderingContext2d", "CssStyleDeclaration", "Document", "DomRect",
+  "DomTokenList", "Element", "Event", "EventTarget", "History", "HtmlBodyElement",
+  "HtmlCanvasElement", "HtmlElement", "HtmlHeadElement", "HtmlInputElement",
+  "HtmlScriptElement", "HtmlTextAreaElement", "KeyboardEvent", "Location", "MediaQueryList",
+  "MouseEvent", "Node", "NodeList", "ScrollBehavior", "ScrollToOptions", "Storage",
+  "SubmitEvent", "UrlSearchParams", "Window"
+] }
