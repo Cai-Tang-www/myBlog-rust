@@ -696,8 +696,10 @@ fn init_canvas() {
             .map(|_| Dot {
                 x: Math::random() * width,
                 y: Math::random() * height,
-                vx: (Math::random() - 0.5) * 0.28,
-                vy: (Math::random() - 0.5) * 0.28,
+                // Match the original canvas-nest motion: each particle starts
+                // with a full-range velocity in [-1, 1].
+                vx: 2.0 * Math::random() - 1.0,
+                vy: 2.0 * Math::random() - 1.0,
             })
             .collect::<Vec<_>>(),
     ));
@@ -712,19 +714,8 @@ fn init_canvas() {
         let h = canvas_clone.height() as f64;
         context.clear_rect(0.0, 0.0, w, h);
         let mut dots = dots_clone.borrow_mut();
+        let cursor = *mouse_for_frame.borrow();
         for dot in &mut *dots {
-            if let Some((mouse_x, mouse_y)) = *mouse_for_frame.borrow() {
-                let dx = dot.x - mouse_x;
-                let dy = dot.y - mouse_y;
-                let distance_squared = dx * dx + dy * dy;
-                let radius = 120.0;
-                if distance_squared > 0.01 && distance_squared < radius * radius {
-                    let distance = distance_squared.sqrt();
-                    let force = (radius - distance) / radius * 2.4;
-                    dot.x += dx / distance * force;
-                    dot.y += dy / distance * force;
-                }
-            }
             dot.x += dot.vx;
             dot.y += dot.vy;
             if dot.x < 0.0 || dot.x > w {
@@ -733,19 +724,51 @@ fn init_canvas() {
             if dot.y < 0.0 || dot.y > h {
                 dot.vy = -dot.vy;
             }
-            context.set_fill_style_str("#1a4db5");
-            context.fill_rect(dot.x - 0.5, dot.y - 0.5, 1.2, 1.2);
+
+            // Deeper blue dots keep the network legible even when isolated.
+            context.set_fill_style_str("#123f9f");
+            context.fill_rect(dot.x - 0.6, dot.y - 0.6, 1.6, 1.6);
+
+            if let Some((mouse_x, mouse_y)) = cursor {
+                // The legacy implementation attracts particles toward the
+                // pointer in its connection ring. The previous Rust port used
+                // the opposite sign, which made the field repel instead.
+                let dx = dot.x - mouse_x;
+                let dy = dot.y - mouse_y;
+                let distance_squared = dx * dx + dy * dy;
+                let mouse_max = 20_000.0;
+                if distance_squared >= mouse_max / 2.0 && distance_squared < mouse_max {
+                    dot.x -= 0.03 * dx;
+                    dot.y -= 0.03 * dy;
+                    let ratio = (mouse_max - distance_squared) / mouse_max;
+                    context.begin_path();
+                    context.set_line_width((ratio / 2.0 + 0.1).min(0.8));
+                    context.set_stroke_style_str(&format!(
+                        "rgba(18,63,159,{:0.3})",
+                        (ratio * 0.68 + 0.38).min(0.98)
+                    ));
+                    context.move_to(dot.x, dot.y);
+                    context.line_to(mouse_x, mouse_y);
+                    context.stroke();
+                }
+            }
         }
+
+        // Draw each particle connection once, matching the original 6,000px
+        // max-distance network while using a darker, more legible blue.
         for i in 0..dots.len() {
             for j in i + 1..dots.len() {
                 let dx = dots[i].x - dots[j].x;
                 let dy = dots[i].y - dots[j].y;
-                let d = dx * dx + dy * dy;
-                if d < 20000.0 {
-                    let alpha = ((20000.0 - d) / 20000.0 * 0.24).max(0.0);
+                let distance_squared = dx * dx + dy * dy;
+                if distance_squared < 6_000.0 {
+                    let ratio = (6_000.0 - distance_squared) / 6_000.0;
                     context.begin_path();
-                    context.set_stroke_style_str(&format!("rgba(26,77,181,{alpha:0.3})"));
-                    context.set_line_width(0.45);
+                    context.set_line_width((ratio / 2.0 + 0.1).min(0.8));
+                    context.set_stroke_style_str(&format!(
+                        "rgba(18,63,159,{:0.3})",
+                        (ratio * 0.68 + 0.38).min(0.98)
+                    ));
                     context.move_to(dots[i].x, dots[i].y);
                     context.line_to(dots[j].x, dots[j].y);
                     context.stroke();
