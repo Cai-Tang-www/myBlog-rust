@@ -83,41 +83,22 @@
 }
 
 .heroTypingTitle {
-  margin: 1.3rem 0 0;
-  overflow: visible;
+  margin: 0.7rem 0 0;
 }
 
-@keyframes typingReveal {
-  from { clip-path: inset(0 100% 0 0); }
-  to { clip-path: inset(0 0 0 0); }
+/* Keep the original readme-typing SVG dimensions and font metrics. */
+.heroTypingMain {
+  display: block;
+  width: min(100%, 56rem);
+  height: auto;
 }
 
-.heroTypingMain,
 .heroTypingSub {
   display: block;
-  width: max-content;
-  max-width: 100%;
-  white-space: nowrap;
-  letter-spacing: -0.045em;
-  clip-path: inset(0 100% 0 0);
-  animation: typingReveal 1.15s steps(8, end) forwards;
-}
-
-.heroTypingMain {
-  color: #16233f;
-  font-size: clamp(3.6rem, 7.8vw, 8.1rem);
-  font-weight: 900;
-  line-height: 1.05;
-}
-
-.heroTypingSub {
-  color: #4f6ef6;
-  margin-top: 0.35rem;
+  width: min(100%, 50rem);
+  margin-top: 0;
   margin-left: clamp(0.5rem, 1.2vw, 1.2rem);
-  font-size: clamp(2.15rem, 5.05vw, 5.2rem);
-  font-weight: 820;
-  line-height: 1.15;
-  animation-delay: 1.25s;
+  height: auto;
 }
 
 .heroActions {
